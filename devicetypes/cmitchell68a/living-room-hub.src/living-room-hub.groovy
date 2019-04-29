@@ -1,5 +1,7 @@
 /**
- *  Copyright 2015 SmartThings
+ *  Living room hub
+ *
+ *  Copyright 2018 Craig Mitchell
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  *  in compliance with the License. You may obtain a copy of the License at:
@@ -12,26 +14,22 @@
  *
  */
 metadata {
-	definition (name: "Contact Sensor Capability", namespace: "capabilities", author: "SmartThings") {
-		capability "Contact Sensor"
+	definition (name: "Living room hub", namespace: "cmitchell68a", author: "Craig Mitchell") {
+		capability "Bridge"
 	}
 
+
 	simulator {
-		status "open": "contact:open"
-		status "closed": "contact:closed"
+		// TODO: define status and reply messages here
 	}
 
 	tiles {
-		standardTile("contact", "device.contact", width: 2, height: 2) {
-			state("closed", label:'${name}', icon:"st.contact.contact.closed", backgroundColor:"#00A0DC")
-			state("open", label:'${name}', icon:"st.contact.contact.open", backgroundColor:"#e86d13")
-		}
-		main "contact"
-		details "contact"
+		// TODO: define your main and details tiles here
 	}
 }
 
+// parse events into attributes
 def parse(String description) {
-	def pair = description.split(":")
-	createEvent(name: pair[0].trim(), value: pair[1].trim())
+	log.debug "Parsing '${description}'"
+
 }
